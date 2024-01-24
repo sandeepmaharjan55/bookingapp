@@ -25,7 +25,8 @@ func main() {
 	fmt.Printf("We have total of %v tickets and %v are remaining", confTickets, remTickets)
 
 	var userName string
-	var userTickets int
+	var userTickets uint
+	//uint for positive number of tickets.
 	fmt.Println("\n Your Name?")
 	fmt.Scan(&userName)
 	fmt.Println("\nHello ", userName, " How many tickets you want?")
