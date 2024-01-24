@@ -8,9 +8,10 @@ func main() {
 	var confName = "Go to the Conference"
 	//var confName string = "Go to the Conference"
 	const confTickets int = 100
-	var remTickets = 50
+	var remTickets uint = 50
 	confNameTrial := "Go to the Conference"
 	// if here confTickets = 50 is done it will not change the value of confTickets as it is defined as const.
+	bookings := []string{}
 
 	fmt.Println("Welcome to this booking application!!")
 	fmt.Println("Get your tickets from here.")
@@ -26,6 +27,7 @@ func main() {
 
 	var userName string
 	var userTickets uint
+
 	//uint for positive number of tickets.
 	fmt.Println("\n Your Name?")
 	fmt.Scan(&userName)
@@ -34,8 +36,12 @@ func main() {
 	fmt.Println("\nNumber of tickets", userTickets)
 
 	//arrays
-	var bookings = []string{"Sandy", "Mandy", "Handy", "Katappa"}
-	for i := 0; i < len(bookings); i++ {
-		fmt.Println(i+1, ".", bookings[i])
-	}
+	remTickets = remTickets - userTickets
+	bookings = append(bookings, userName)
+	// var bookings = []string{"Sandy", "Mandy", "Handy", "Katappa"}
+	// for i := 0; i < len(bookings); i++ {
+	// 	fmt.Println(i+1, ".", bookings[i])
+	// }
+	fmt.Printf("\nThank you for booking %v tickets. Now remaining tickets are %v", userTickets, remTickets)
+	fmt.Printf("\nThese are all bookings %v", bookings)
 }
