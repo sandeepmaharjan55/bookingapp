@@ -32,4 +32,10 @@ func main() {
 	fmt.Println("\nHello ", userName, " How many tickets you want?")
 	fmt.Scan(&userTickets)
 	fmt.Println("\nNumber of tickets", userTickets)
+
+	//arrays
+	var bookings = []string{"Sandy", "Mandy", "Handy", "Katappa"}
+	for i := 0; i < len(bookings); i++ {
+		fmt.Println(i+1, ".", bookings[i])
+	}
 }
