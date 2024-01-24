@@ -7,7 +7,7 @@ func main() {
 	//use of variables in Go
 	var confName = "Go to the Conference"
 	//var confName string = "Go to the Conference"
-	const confTickets = 100
+	const confTickets int = 100
 	var remTickets = 50
 	confNameTrial := "Go to the Conference"
 	// if here confTickets = 50 is done it will not change the value of confTickets as it is defined as const.
@@ -24,4 +24,11 @@ func main() {
 	fmt.Printf("Welcome to %v booking application!! \n", confName)
 	fmt.Printf("We have total of %v tickets and %v are remaining", confTickets, remTickets)
 
+	var userName string
+	var userTickets int
+	fmt.Println("\n Your Name?")
+	fmt.Scan(&userName)
+	fmt.Println("\nHello ", userName, " How many tickets you want?")
+	fmt.Scan(&userTickets)
+	fmt.Println("\nNumber of tickets", userTickets)
 }
