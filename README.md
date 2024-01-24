@@ -1,1 +1,1 @@
-# golangcli
+# golangcli booking app
