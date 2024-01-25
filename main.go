@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 // The "main" function is the entrypoint of a Go Program
 func main() {
@@ -52,6 +55,19 @@ func main() {
 		// }
 		fmt.Printf("\nThank you for booking %v tickets. Confirmation is sent to %v", userTickets, email)
 		fmt.Printf("\n Now remaining tickets are %v", remTickets)
-		fmt.Printf("\nThese are all bookings %v \n", bookings)
+
+		//splitting the full names and taking only first names in array
+		firstNames := []string{}
+		for _, booking := range bookings {
+			var names = strings.Fields(booking)
+			firstNames = append(firstNames, names[0])
+		}
+		fmt.Printf("\nThe first names og all bookings %v \n", firstNames)
+
+		noTicketsRemaining := remTickets == 0
+		if noTicketsRemaining {
+			fmt.Println("\nThe Conference is full. All Tickets has been booked.")
+			break
+		}
 	}
 }
