@@ -8,7 +8,7 @@ import (
 // The "main" function is the entrypoint of a Go Program
 func main() {
 	//use of variables in Go
-	var confName = "Go to the Conference"
+	var confName = "Hamro Greet"
 	const confTickets int = 100
 	var remTickets uint = 50
 	// confNameTrial := "Go to the Conference"
@@ -18,13 +18,13 @@ func main() {
 	// fmt.Println(confName)
 	// fmt.Println("Welcome to Trial ", confNameTrial, "booking application!!")
 	// use of print formatted data
+	greetUsers(confName)
+
 	fmt.Printf("Welcome to %v booking application!! \n", confName)
 	fmt.Println("Get your tickets from here.")
 	fmt.Printf("We have total of %v tickets and %v are remaining", confTickets, remTickets)
 
-
 	for remTickets > 0 && len(bookings) < 50 {
-	for {
 		var userFirstName string
 		var userLastName string
 		var userTickets uint
@@ -41,9 +41,9 @@ func main() {
 		fmt.Scan(&userTickets)
 		fmt.Println("\nEnter the number of tickets", userTickets)
 
-		isValidName := len(userFirstName)>=2 && len(userLastName)>=2
+		isValidName := len(userFirstName) >= 2 && len(userLastName) >= 2
 		isValidEmail := strings.Contains(email, "@")
-		isValidTicketNumber := userTickets>0 && userTickets <= remTickets
+		isValidTicketNumber := userTickets > 0 && userTickets <= remTickets
 
 		//isValidCity := city == "kathmandu" || city == "delhi"
 		if isValidName && isValidEmail && isValidTicketNumber {
@@ -58,12 +58,7 @@ func main() {
 			fmt.Printf("\nThank you for booking %v tickets. Confirmation is sent to %v", userTickets, email)
 
 			//splitting the full names and taking only first names in array
-			firstNames := []string{}
-			for _, booking := range bookings {
-				var names = strings.Fields(booking)
-				firstNames = append(firstNames, names[0])
-			}
-			fmt.Printf("\nThe first names og all bookings %v \n", firstNames)
+			printFirstNames(bookings)
 
 			noTicketsRemaining := remTickets == 0
 			if noTicketsRemaining {
@@ -76,7 +71,28 @@ func main() {
 			// 	break
 			// }
 		} else {
-			fmt.Printf("We only have %v tickets available!!", remTickets)
+			if !isValidEmail {
+				fmt.Println("Invalid Email ID")
+			}
+			if !isValidName {
+				fmt.Println("Atleast two characters are required for First Name and Last Name.")
+			}
+			if !isValidTicketNumber {
+				fmt.Println("No ticket left for this number of people")
+			}
 		}
 	}
+}
+
+func greetUsers(hamroGreet string) {
+	fmt.Printf("Welcome to %v conference! \n", hamroGreet)
+}
+
+func printFirstNames(bookings []string) {
+	firstNames := []string{}
+	for _, booking := range bookings {
+		var names = strings.Fields(booking)
+		firstNames = append(firstNames, names[0])
+	}
+	fmt.Printf("\nThe first names og all bookings %v \n", firstNames)
 }
